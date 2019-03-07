@@ -6,6 +6,7 @@ import GameCenter from "./containers/GameCenter";
 import "normalize.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/reducer";
+import './style.css'
 
 ReactDOM.render(
   <Provider store={store}>

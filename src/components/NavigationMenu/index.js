@@ -1,30 +1,58 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+import { connect } from "react-redux";
+import { onOpen } from "../../redux/slideBar.redux";
+
 const styles = {
   root: {
-    flexGrow: 1
+    padding: '8px 8px 0 8px'
+  },
+  paper: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    padding: '2px 0',
+    borderRadius: '3px'
   },
   grow: {
     flexGrow: 1
+  },
+  input: {
+    marginLeft: 8,
+    flex: 1
+  },
+  iconButton: {
+    padding: 10
   }
 };
 
 function ButtonAppBar(props) {
   const { classes } = props;
-  const Icon = props.icon;
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color={props.color}>
-        <Toolbar>
-          <Icon />
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            {props.title}
-          </Typography>
-        </Toolbar>
+    <div>
+      <AppBar position="static" color={props.color} className={classes.root}>
+        <Paper elevation={1} className={classes.paper}>
+          <IconButton className={classes.iconButton} aria-label="Menu" onClick={props.onOpen}>
+            <MenuIcon />
+          </IconButton>
+          <InputBase
+            className={classes.input}
+            placeholder="Game Box"
+            style={{ fontSize: '20px' }}
+          />
+          <IconButton className={classes.iconButton} aria-label="Search">
+            <SearchIcon />
+          </IconButton>
+          <Divider className={classes.divider} />
+        </Paper>
       </AppBar>
     </div>
   );
@@ -35,4 +63,9 @@ ButtonAppBar.propTypes = {
 };
 
 
-export default withStyles(styles)(ButtonAppBar);
+const Index = connect(
+  null,
+  { onOpen }
+)(ButtonAppBar);
+
+export default withStyles(styles)(Index);

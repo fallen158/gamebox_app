@@ -14,7 +14,8 @@ function Icon(props) {
 function index() {
   return (
     <>
-      <NavigationMenu title={null} icon={Icon} color={"default"} />
+      {/* <NavigationMenu title={null} icon={Icon} color={"default"} /> */}
+      <p>21321</p>
     </>
   );
 }
