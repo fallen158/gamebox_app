@@ -3,7 +3,6 @@ import NavigationMenu from '../../components/NavigationMenu';
 import SlidebarMenu from '../../components/SidebarMenu';
 import RevealMenu from '../../components/RevealMenu';
 import Swiper from '../../components/Swiper';
-import TitleMenu from '../../components/TitleMenu';
 import ImagesMenu from '../../components/ImagesMenu';
 import SuspendedBall from '../../components/SuspendedBall';
 import TabConttainer from '../../components/TabContainer';
@@ -16,7 +15,6 @@ function index() {
       <SlidebarMenu />
       <Swiper />
       <RevealMenu />
-      <TitleMenu title="New and Trending" artibules="h6" />
       <ImagesMenu />
       <SuspendedBall />
     </>
