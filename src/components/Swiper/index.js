@@ -4,7 +4,9 @@ import { withStyles } from "@material-ui/core/styles";
 import MobileStepper from "@material-ui/core/MobileStepper";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
+import ButtonBase from "@material-ui/core/ButtonBase";
 import "./styles.css";
+import { withRouter } from "react-router-dom";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -41,15 +43,15 @@ const styles = theme => ({
     flexGrow: 1,
     padding: "0 10px",
     marginTop: "10px",
-    position:'relative',
-    backageound:'none'
+    position: "relative",
+    backageound: "none"
   },
   img: {
-    height: 255,
+    height: 155,
     display: "block",
     overflow: "hidden",
     width: "100%",
-    borderRadius: "10px"
+    borderRadius: "4px"
   },
   mobileStepper: {
     position: "absolute",
@@ -86,30 +88,33 @@ class SwipeableTextMobileStepper extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AutoPlaySwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={activeStep}
-          onChangeIndex={this.handleStepChange}
-          enableMouseEvents
-        >
-          {tutorialSteps.map((step, index) => (
-            <div key={step.label}>
-              {Math.abs(activeStep - index) <= 2 ? (
-                <img
-                  className={classes.img}
-                  src={step.imgPath}
-                  alt={step.label}
-                />
-              ) : null}
-            </div>
-          ))}
-        </AutoPlaySwipeableViews>
+        <ButtonBase>
+          <AutoPlaySwipeableViews
+            axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+            index={activeStep}
+            onChangeIndex={this.handleStepChange}
+            enableMouseEvents
+            onClick={() => this.props.history.push("/introduction")}
+          >
+            {tutorialSteps.map((step, index) => (
+              <div key={step.label}>
+                {Math.abs(activeStep - index) <= 2 ? (
+                  <img
+                    className={classes.img}
+                    src={step.imgPath}
+                    alt={step.label}
+                  />
+                ) : null}
+              </div>
+            ))}
+          </AutoPlaySwipeableViews>
+        </ButtonBase>
         <MobileStepper
           steps={maxSteps}
           position="static"
           activeStep={activeStep}
           className={classes.mobileStepper}
-          style={{background:'none'}}
+          style={{ background: "none" }}
         />
       </div>
     );
@@ -122,5 +127,5 @@ SwipeableTextMobileStepper.propTypes = {
 };
 
 export default withStyles(styles, { withTheme: true })(
-  SwipeableTextMobileStepper
+  withRouter(SwipeableTextMobileStepper)
 );

@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
+import { withRouter } from "react-router-dom";
 
 const styles = theme => ({
   root: {
@@ -37,7 +38,10 @@ function GameList(props) {
         {props.lists.map(v => (
           <Grid item xs={4} className={classes.row} key={v._id}>
             <div className={classes.container}>
-              <div className={classes.wrapperImg}>
+              <div
+                className={classes.wrapperImg}
+                onClick={() => props.history.push("/introduction")}
+              >
                 <img src={v.img_url} alt={v.title} className={classes.img} />
               </div>
               <div style={{ margin: "6px 0" }}>{v.title}</div>
@@ -57,4 +61,4 @@ GameList.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(GameList);
+export default withStyles(styles)(withRouter(GameList));

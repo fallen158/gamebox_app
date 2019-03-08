@@ -1,0 +1,43 @@
+.gamePay_container {
+  height: 100vh;
+  width: 100%;
+}
+
+.gamePay_menu {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 9999;
+  background: white;
+  border-radius: 50%;
+  color: black;
+  z-index: 99999;
+}
+
+.setting {
+  width: 50%;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  position: absolute;
+  right: 60px;
+  top: 60px;
+  padding: 0 20px;
+  z-index: 999999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.setting-back,
+.setting-home {
+  background: white;
+  color: black;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.setting-text{
+  color: white;
+}

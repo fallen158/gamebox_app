@@ -1,0 +1,34 @@
+.recommend_row {
+  display: flex;
+  text-align: center;
+  padding: 0 12px;
+  overflow: hidden;
+  overflow-x: scroll;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-overflow-scrolling: touch;
+}
+.recommend_row::-webkit-scrollbar {
+  display: none;
+}
+
+.recommend_container {
+  font-size: 12px;
+  margin: 20px 8px;
+  /* padding-right: 15px; */
+}
+.recommend_container:last-child{
+  padding-right: 15px;
+}
+
+.recommend_wrapper {
+  width: 120px;
+  height: 120px;
+}
+
+.recommend-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}

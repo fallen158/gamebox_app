@@ -1,21 +1,24 @@
-import React from 'react';
-import NavigationMenu from '../../components/NavigationMenu';
-import SlidebarMenu from '../../components/SidebarMenu';
-import RevealMenu from '../../components/RevealMenu';
-import Swiper from '../../components/Swiper';
-import ImagesMenu from '../../components/ImagesMenu';
-import SuspendedBall from '../../components/SuspendedBall';
-import TabConttainer from '../../components/TabContainer';
+import React from "react";
+import NavigationMenu from "../../components/NavigationMenu";
+import SlidebarMenu from "../../components/SidebarMenu";
+import Swiper from "../../components/Swiper";
+import SuspendedBall from "../../components/SuspendedBall";
+import TabConttainer from "../../components/TabContainer";
+import ImagesMenu from "../../components/ImagesMenu";
+import ADVertising from  '../../components/ADVertising';
+// import RevealMenu from '../../components/RevealMenu';
+
 
 function index() {
   return (
     <>
-      <NavigationMenu />
-      <TabConttainer />
+      <NavigationMenu color="secondary" />
+      <TabConttainer color="secondary" />
       <SlidebarMenu />
       <Swiper />
-      <RevealMenu />
-      <ImagesMenu />
+      <ImagesMenu title=" New & updated games" />
+      <ADVertising/>
+      <ImagesMenu title="个性化推荐" />
       <SuspendedBall />
     </>
   );
