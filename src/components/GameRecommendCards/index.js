@@ -13,6 +13,15 @@ const styles = theme => ({
 
 function GameList(props) {
   const { classes } = props;
+  const primary = {
+    color: "#9c27b0"
+  };
+  const secondary = {
+    color: "#f50057"
+  };
+  const inherit = {
+    color: "rgba(0, 0, 0, 0.87"
+  };
   return (
     <div className={classes.root}>
       <div className="recommend_row">
@@ -28,7 +37,19 @@ function GameList(props) {
             </div>
             <div style={{ margin: "6px 0" }}>{v.title}</div>
             <div>
-              <span style={{ color: "#f99d00" }}>{v.people} </span>
+              <span
+                style={
+                  props.theme === "secondary"
+                    ? secondary
+                    : props.theme === "primary"
+                    ? primary
+                    : props.theme === "inherit"
+                    ? inherit
+                    : null
+                }
+              >
+                {v.people}{" "}
+              </span>
               <span style={{ color: "#555" }}>玩过</span>
             </div>
           </div>

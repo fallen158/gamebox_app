@@ -9,8 +9,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { connect } from "react-redux";
-import { onClose, onOpen } from "../../redux/slideBar.redux";
+
+
 const styles = {
   list: {
     width: 250
@@ -22,7 +22,6 @@ const styles = {
 
 function SwipeableTemporaryDrawer(props) {
   const { classes } = props;
-  console.log(props);
   const sideList = (
     <div className={classes.list}>
       <List>
@@ -72,9 +71,5 @@ SwipeableTemporaryDrawer.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-const index = connect(
-  state => state.slideBarRedux,
-  { onClose, onOpen }
-)(SwipeableTemporaryDrawer);
 
-export default withStyles(styles)(index);
+export default withStyles(styles)(SwipeableTemporaryDrawer);

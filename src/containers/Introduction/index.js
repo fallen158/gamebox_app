@@ -3,6 +3,7 @@ import AppBarMenu from "../../components/AppBarMenu";
 import GameWrapper from "./components/GameWrapper";
 import GameRecommendCards from "../../components/GameRecommendCards";
 import axios from "axios";
+import { connect } from "react-redux";
 class index extends Component {
   constructor(props) {
     super(props);
@@ -22,12 +23,15 @@ class index extends Component {
   render() {
     return (
       <div style={{ background: "white" }}>
-        <AppBarMenu title={null} color="secondary" />
+        <AppBarMenu title={null} color={this.props.color} />
         <GameWrapper />
-        <GameRecommendCards lists={this.state.lists} />
+        <GameRecommendCards lists={this.state.lists} theme={this.props.color} />
       </div>
     );
   }
 }
 
-export default index;
+export default connect(
+  state => state.themeRedux,
+  {}
+)(index);

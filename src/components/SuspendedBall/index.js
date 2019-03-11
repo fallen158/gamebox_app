@@ -16,7 +16,7 @@ const styles = theme => ({
 function FloatingActionButtons(props) {
   const { classes } = props;
   return (
-    <Fab color="secondary" aria-label="Edit" className={classes.fab}>
+    <Fab color={props.color} aria-label="Edit" className={classes.fab}>
       <AddIcon onClick={() => props.history.push("/gamecenter")} />
     </Fab>
   );

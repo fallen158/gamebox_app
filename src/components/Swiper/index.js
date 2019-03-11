@@ -114,7 +114,7 @@ class SwipeableTextMobileStepper extends React.Component {
           position="static"
           activeStep={activeStep}
           className={classes.mobileStepper}
-          style={{ background: "none" }}
+          style={{ background: 'none'}}
         />
       </div>
     );

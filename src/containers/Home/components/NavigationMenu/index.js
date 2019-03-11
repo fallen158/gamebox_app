@@ -8,8 +8,6 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import { connect } from "react-redux";
-import { onOpen } from "../../redux/slideBar.redux";
 
 const styles = {
   root: {
@@ -36,11 +34,12 @@ const styles = {
 
 function ButtonAppBar(props) {
   const { classes } = props;
+  console.log(props)
   return (
     <div>
       <AppBar position="static" color={props.color} className={classes.root}>
         <Paper elevation={1} className={classes.paper}>
-          <IconButton className={classes.iconButton} aria-label="Menu" onClick={props.onOpen}>
+          <IconButton className={classes.iconButton} aria-label="Menu" onClick={props.setOpen}>
             <MenuIcon />
           </IconButton>
           <InputBase
@@ -62,10 +61,4 @@ ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-
-const Index = connect(
-  null,
-  { onOpen }
-)(ButtonAppBar);
-
-export default withStyles(styles)(Index);
+export default withStyles(styles)(ButtonAppBar);
