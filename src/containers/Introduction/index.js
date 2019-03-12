@@ -12,7 +12,7 @@ class index extends Component {
     };
   }
   componentWillMount() {
-    axios.get("/game/list").then(res => {
+    axios.get("./data/gamelist.json").then(res => {
       if (res.status === 200) {
         this.setState({
           lists: res.data

@@ -6,17 +6,11 @@ import SuspendedBall from "../../components/SuspendedBall";
 import TabConttainer from "./components/TabContainer/";
 import ImagesMenu from "../../components/ImagesMenu";
 import ADVertising from "../../components/ADVertising";
-import axios from "axios";
 
 // 状态父组件统一处理
 import { connect } from "react-redux";
 import { onOpen, onClose } from "../../redux/slideBar.redux";
 class index extends React.Component {
-  componentWillMount() {
-    axios.get("./data/gamelist.json").then(res => {
-      console.log(res);
-    });
-  }
   render() {
     const { onOpen, onClose, slideBarRedux, themeRedux } = this.props;
     return (
